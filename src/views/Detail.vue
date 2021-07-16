@@ -20,7 +20,7 @@
           >
             <div class="card-content white-text">
               <p>{{'Description'|localize}}: {{record.description}}</p>
-              <p>{{'Amount'|localize}}: {{record.amount }}</p>
+              <p>{{'Amount'|localize}}: {{record.amount }} м3</p>
               <p>{{'Category'|localize}}: {{record.categoryName}}</p>
               <p>{{'WaterIntake'|localize}}: {{record.waterIntakeName}}</p>
               <p>{{'WaterConsumer'|localize}}: {{record.waterConsumerName}}</p>

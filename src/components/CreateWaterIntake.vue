@@ -7,87 +7,55 @@
 
       <form @submit.prevent="submitHandler">
         <div class="input-field">
-          <input
-            id="name"
-            type="text"
-            v-model="title"
-            :class="{ invalid: $v.title.$dirty && !$v.title.required }"
-          />
+          <input id="name" type="text" v-model="title" :class="{ invalid: $v.title.$dirty && !$v.title.required }" />
           <label for="name">{{ 'Title' | localize }}</label>
-          <span
-            v-if="$v.title.$dirty && !$v.title.required"
-            class="helper-text invalid"
-            >{{ 'Message_WaterIntakeTitle' | localize }}</span
-          >
+          <span v-if="$v.title.$dirty && !$v.title.required"
+            class="helper-text invalid">{{ 'Message_WaterIntakeTitle' | localize }}</span>
         </div>
 
         <div class="input-field">
-          <select
-            ref="waterBodyCodeAndType"
-            v-model="waterBodyCodeAndType"
-            class="form-control"
-            id="water-body-code"
-          >
-            <option
-              v-for="(option, index) in waterBodyCodeAndTypeOptions"
-              v-bind:value="option"
-              v-bind:key="index"
-            >
+          <select ref="waterBodyCodeAndType" v-model="waterBodyCodeAndType" class="form-control" id="water-body-code">
+            <option v-for="(option, index) in waterBodyCodeAndTypeOptions" v-bind:value="option" v-bind:key="index">
               {{ option.waterBodyName }}
             </option>
           </select>
           <label for="water-body-code">{{
             'Water_Body_Code_And_Type' | localize
           }}</label>
-          <span
-            v-if="
+          <span v-if="
               $v.waterBodyCodeAndType.$dirty &&
               !$v.waterBodyCodeAndType.required
-            "
-            class="helper-text invalid"
-            >{{ 'Message_WaterIntakeTitle' | localize }}</span
-          >
+            " class="helper-text invalid">{{ 'Message_WaterIntakeTitle' | localize }}</span>
         </div>
 
         <div class="input-field">
           <label for="water-intake-number">{{ 'Water_Intake_Number' | localize }}</label>
           <input id="water-intake-number" v-model="waterIntakeNumber" type="text" class="form-control" />
-          <small id="water-intake-number" class="form-text text-muted">({{ 'Water_Discharge_Point' | localize }})</small>
+          <small id="water-intake-number"
+            class="form-text text-muted">({{ 'Water_Discharge_Point' | localize }})</small>
         </div>
 
         <div class="input-field">
           <label for="guiv-code">{{ 'GUIV_Code' | localize }}</label>
-          <input
-            id="guiv-code"
-            v-model="guivCode"
-            type="text"
-            class="form-control"
-          />
+          <input id="guiv-code" v-model="guivCode" type="text" class="form-control" />
           <small id="guiv-code-help" class="form-text text-muted">{{
             'GUIV_Code_Helper_Text' | localize
           }}</small>
         </div>
 
         <div class="input-field">
-             <label for="sea-river-code">{{'Sea_River_Code' | localize }}</label>
-             <input id="sea-river-code" v-model="seaRiverCode" type="text" class="form-control" />
-             <small id="sea-river-code-help" class="form-text text-muted"></small>
-             <span> </span>
+          <label for="sea-river-code">{{'Sea_River_Code' | localize }}</label>
+          <input id="sea-river-code" v-model="seaRiverCode" type="text" class="form-control" />
+          <small id="sea-river-code-help" class="form-text text-muted"></small>
+          <span> </span>
         </div>
 
         <div class="input-field">
           <label for="distance-from-estuary">{{
             'Distance_From_Estuary' | localize
           }}</label>
-          <input
-            id="distance-from-estuary"
-            v-model="distanceFromEstuary"
-            type="text"
-            class="form-control"
-          />
-          <small id="distance-from-estuary-help" class="form-text text-muted"
-            >({{ 'KM' | localize }})</small
-          >
+          <input id="distance-from-estuary" v-model="distanceFromEstuary" type="text" class="form-control" />
+          <small id="distance-from-estuary-help" class="form-text text-muted">({{ 'KM' | localize }})</small>
         </div>
 
         <!--    Притоки         -->
@@ -111,10 +79,7 @@
                     item.feederCode
                   }}</span>
                   <span v-if="editFeederIndex === index">
-                    <input
-                      class="form-control form-control-sm"
-                      v-model="item.feederCode"
-                    />
+                    <input class="form-control form-control-sm" v-model="item.feederCode" />
                   </span>
                 </td>
                 <td>
@@ -122,10 +87,7 @@
                     item.feederName
                   }}</span>
                   <span v-if="editFeederIndex === index">
-                    <input
-                      class="form-control form-control-sm"
-                      v-model="item.feederName"
-                    />
+                    <input class="form-control form-control-sm" v-model="item.feederName" />
                   </span>
                 </td>
                 <td>
@@ -133,38 +95,27 @@
                     item.feederDescription
                   }}</span>
                   <span v-if="editFeederIndex === index">
-                    <input
-                      class="form-control form-control-sm"
-                      v-model="item.feederDescription"
-                    />
+                    <input class="form-control form-control-sm" v-model="item.feederDescription" />
                   </span>
                 </td>
                 <td>
                   <span v-if="editFeederIndex !== index">
-                    <button
-                      @click.prevent="edit(item, index)"
-                      class="btn btn-small btn-outline-warning waves-effect waves-light orange"
-                    >
+                    <button @click.prevent="edit(item, index)"
+                      class="btn btn-small btn-outline-warning waves-effect waves-light orange">
                       <i class="material-icons">edit</i>
                     </button>
-                    <button
-                      @click.prevent="remove(item, index)"
-                      class="btn btn-small btn-outline-danger waves-effect waves-light red"
-                    >
+                    <button @click.prevent="remove(item, index)"
+                      class="btn btn-small btn-outline-danger waves-effect waves-light red">
                       <i class="material-icons">delete</i>
                     </button>
                   </span>
                   <span v-else>
-                    <button
-                      class="btn btn-small btn-outline-secondary waves-effect waves-light grey"
-                      @click.prevent="cancel(item)"
-                    >
+                    <button class="btn btn-small btn-outline-secondary waves-effect waves-light grey"
+                      @click.prevent="cancel(item)">
                       <i class="material-icons">cancel</i>
                     </button>
-                    <button
-                      class="btn btn-small btn-outline-success waves-effect waves-light"
-                      @click.prevent="save(item)"
-                    >
+                    <button class="btn btn-small btn-outline-success waves-effect waves-light"
+                      @click.prevent="save(item)">
                       <i class="material-icons">save</i>
                     </button>
                   </span>
@@ -176,27 +127,49 @@
         <!--     END Притоки        -->
 
         <!-- to-do Прибор водоучета -->
-      <ul class="collapsible">
-        <li>
-          <div class="collapsible-header" @click="toggle"><i class="material-icons">network_check</i>{{ 'Water_Meter' | localize }}</div>
-           <div class="card" v-show="showSection">
-             <div class="card-content">
-              <div class="input-field">
-                <label for="water-meter-brand">{{ 'Water_Meter_Brand' | localize }}</label>
-                <textarea id="water-meter-brand" v-model="waterMeterBrand" class="materialize-textarea"></textarea>
-                <small id="water-meter-brand-help" class="form-text text-muted helper-text">{{'Indicate_Water_Meter_Brand' | localize}}</small>
-              </div>
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header" @click="toggle"><i
+                class="material-icons">network_check</i>{{ 'Water_Meter' | localize }}</div>
+            <div class="card" v-show="showSection">
+              <div class="card-content">
+                <div class="input-field">
+                  <label for="water-meter-brand">{{ 'Water_Meter_Brand' | localize }}</label>
+                  <textarea id="water-meter-brand" v-model="waterMeterBrand" class="materialize-textarea"></textarea>
+                  <small id="water-meter-brand-help"
+                    class="form-text text-muted helper-text">{{'Indicate_Water_Meter_Brand' | localize}}</small>
+                </div>
 
-              <div class="input-field">
-                <label for="last-verification-date">{{ 'Last_Verification_Date' | localize }}</label>
-                <input id="last-verification-date" v-model="lastVerificationDate" type="date" placeholder="Date"  class="datepicker" />
-                <small id="last-verification-date-help" class="form-text text-muted"></small>
+                <div class="input-field">
+                  <label for="last-verification-date">{{ 'Last_Verification_Date' | localize }}</label>
+                  <input id="last-verification-date" v-model="lastVerificationDate" type="date" placeholder="Date"
+                    class="datepicker" />
+                  <small id="last-verification-date-help" class="form-text text-muted"></small>
+                </div>
+
+                <!-- <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">{{ 'Attach_Documents' | localize }}</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple>
+              </div> -->
+
+                <form action="#">
+                  <div class="file-field input-field">
+                    <div class="btn">
+                      <label for="formFileMultiple"
+                        class="form-label text-white">{{ 'Attach_Documents' | localize }}</label>
+                      <input type="file" multiple>
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text" placeholder=".pdf">
+                    </div>
+                  </div>
+                </form>
+
               </div>
             </div>
-           </div>
-        </li>
-      </ul>
-     <!-- END  Прибор водоучета -->
+          </li>
+        </ul>
+        <!-- END  Прибор водоучета -->
 
         <button class="btn waves-effect waves-light" type="submit">
           {{ 'Create' | localize }}

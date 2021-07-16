@@ -33,9 +33,9 @@
   "Menu_Bill": "Счет",
   "Menu_Balance": "Баланс",
   "Detail_Title": "Запись",
-  "Menu_History": "История",
+  "Menu_History": "Журнал",
   "Menu_Planning": "Планирование",
-  "Menu_NewRecord": "Новая запись",
+  "Menu_NewRecord": "Учет водопотребления",
   "Menu_Categories": "Категории",
   "Menu_WaterIntakes": "Водозаборы",
   "Menu_WaterConsumers": "Водопотребители",
@@ -48,7 +48,7 @@
   "Message_CategoryTitle": "Введите название категории",
   "Message_WaterIntakeTitle": "Введите название водозабора",
   "Message_WaterConsumerTitle": "Введите название водопотребителя",
-  "Message_MinLength": "Минимальная значение",
+  "Message_MinLength": "Мин. значение",
   "Category_HasBeenCreated": "Категория была создана",
   "Category_HasBeenUpdated": "Категория упешно обновлена",
   "WaterIntake_HasBeenCreated": "Водозабор был создан",
@@ -60,7 +60,7 @@
   "SelectCategory": "Выберите категорию",
   "SelectWaterIntake": "Выберите водозабор",
   "SelectWaterConsumer": "Выберите водопотребителя",
-  "Amount": "Сумма",
+  "Amount": "Количество",
   "Date": "Дата",
   "Description": "Описание",
   "Category": "Категория",
@@ -83,7 +83,7 @@
   "Income": "Прием",
   "Outcome": "Расход",
   "Of": "из",
-  "History_Title": "История записей",
+  "History_Title": "Журнал записей",
   "NoRecords": "Записей пока нет",
   "AddFirst": "Добавьте первую",
   "Back": "Назад",
@@ -135,7 +135,9 @@
   "Water_Established_Volume_Comment": "(тыс. м3 - В разрешении на специальное водопользование)",
   "Limits_Yearly_Break": "Лимиты по годам",
   "Limit_Year": "Год лимита",
-  "Yearly_Water_Limit_Volume": "Годовой лимит тыс. м3"
+  "Yearly_Water_Limit_Volume": "Годовой лимит тыс. м3",
+  "Attach_Documents": "Загрузите документы",
+  "Water_Removal_Delivery_Date": "Дата"
 
 
 

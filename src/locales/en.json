@@ -134,7 +134,9 @@
   "Water_Established_Volume_Comment": "(thousand m3 - In the permit for special water use)",
   "Limits_Yearly_Break": "Limits Yearly Break",
   "Limit_Year": "Limit Year",
-  "Yearly_Water_Limit_Volume": "Annual limit thous. m3"
+  "Yearly_Water_Limit_Volume": "Annual limit thous. m3",
+  "Attach_Documents": "Загрузите документы",
+  "Water_Removal_Delivery_Date": "Water Removal or Delivery Date"
 
 
 }

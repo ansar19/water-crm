@@ -393,7 +393,7 @@ export default {
     // related to map
     visible: true,
     // center: [47.989921667414194, 68.73046875000001], 
-    center: L.latLng(47.989921667414194, 68.73046875000001),
+    center: L.latLng(49.7130280, 81.5851838),
     opacity: 0.6,
     token: 'your token if using mapbox',
     mapOptions: {

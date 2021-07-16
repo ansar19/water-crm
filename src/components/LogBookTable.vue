@@ -46,7 +46,7 @@ export default {
         },
         {
           label: 'Дата',
-          field: 'date',
+          field: 'recordDate',
           type: 'date',
           dateInputFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
           dateOutputFormat: 'dd-MM-yyyy',
@@ -129,6 +129,7 @@ export default {
       translateType(value) {
         const map = {
             internalWaterUser: 'Внутреннее водопотребление', // to-do add rest of the waterUsers
+            secondaryWaterUser: 'Вторичный водопотребитель'
             // amber: 'Янтарный',
         };
       return `${map[value]}`;

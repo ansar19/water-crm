@@ -13,6 +13,15 @@
 
     <form class="form" v-else @submit.prevent="handleSubmit">
 
+      <!-- Дата -->
+
+      <div class="from-group">
+        <!-- <div>Opened: <span :class="[opened ? 'text-success' : 'text-danger']">{{ opened }}</span></div> -->
+        <div>📅 {{'Water_Removal_Delivery_Date'|localize}}:</div>
+        <!-- <span>{{ recordDate }}</span> -->
+        <datepicker v-model="recordDate" :language="ru" />
+      </div>
+
       <div class="input-field">
           <select ref="waterIntake" v-model="waterIntake">
             <option v-for="wi of waterIntakes" :key="wi.id" :value="wi.id">{{wi.title}}</option>
@@ -78,6 +87,13 @@
 </template>
 
 <script>
+import {
+  en,
+  ru
+} from 'vuejs-datepicker/dist/locale'
+
+import Datepicker from 'vuejs-datepicker';
+
 import { required, minValue, decimal } from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 import localizeFilter from '@/filters/localize.filter'
@@ -90,6 +106,8 @@ export default {
     }
   },
   data: () => ({
+    ru: ru, // vuejs-datepicker
+    en: en, // vuejs-datepicker
     loading: true,
     select: null,
     categories: [],
@@ -100,7 +118,8 @@ export default {
     amount: 0.001,
     description: '',
     waterIntake: null,
-    waterIntakes: []
+    waterIntakes: [],
+    recordDate: new Date(),
   }),
   validations: {
     amount: { required, minValue: minValue(0.001), decimal },
@@ -159,7 +178,8 @@ export default {
             amount: this.amount,
             description: this.description,
             type: this.type,
-            date: new Date().toJSON()
+            date: new Date().toJSON(),
+            recordDate: this.recordDate.toJSON(),
           })
           const bill =
             this.type === 'income' ?
@@ -205,7 +225,9 @@ export default {
     if (this.waterConsumer && this.waterConsumer.destroy) {
       this.waterConsumer.destroy()
     }
+  },
+  components: {
+    Datepicker
   }
 }
 </script>
-
