@@ -40,6 +40,7 @@
   "Menu_WaterIntakes": "Водозаборы",
   "Menu_WaterConsumers": "Водопотребители",
   "WaterConsumer_Detail": "Детали водопотребителя",
+  "Menu_Wastewater_Receivers": "Приёмники сточных вод",
   "Выйти": "Выйти",
   "Title": "Название",
   "Limit": "Лимит",
@@ -137,8 +138,14 @@
   "Limit_Year": "Год лимита",
   "Yearly_Water_Limit_Volume": "Годовой лимит тыс. м3",
   "Attach_Documents": "Загрузите документы",
-  "Water_Removal_Delivery_Date": "Дата"
-
-
+  "Water_Removal_Delivery_Date": "Дата",
+  "Wastewater_Receivers": "Приёмники сточных вод",
+  "Select_Wastewater_Receiver": "Выберите приёмник сточных вод",
+  "Internal_Wastewater_Receiver": "Internal приёмник сточных вод",
+  "External_Wastewater_Receiver": "External приёмник сточных вод",
+  "Message_Wastewater_Receiver_Title": "Введите название приёмника сточных вод",
+  "Wastewater_Receiver_Detail": "Детали приёмника сточных вод",
+  "Wastewater_Receiver_HasBeenCreated": "Приёмник сточных вод создан",
+  "No_Wastewater_Receivers": "Приёмники сточных вод отсутствуют"
 
 }

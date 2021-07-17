@@ -73,7 +73,14 @@ const router = new Router({
       name: 'record',
       meta: {layout: 'main', auth: true},
       component: () => import('./views/Record.vue')
-    }
+    },
+    {
+      path: '/wastewaterreceivers',
+      name: 'wastewaterreceivers',
+      meta: {layout: 'main', auth: true},
+      component: () => import('./views/WastewaterReceiver.vue')
+    },
+
   ]
 })
 

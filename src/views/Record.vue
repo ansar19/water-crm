@@ -22,6 +22,24 @@
         <datepicker v-model="recordDate" :language="ru" />
       </div>
 
+      <div class="row">
+        <div class="input-field">
+          <p>
+            <label>
+              <input class="with-gap" name="type" type="radio" value="income" v-model="type">
+              <span>{{'Income'|localize}}</span>
+            </label>
+          </p>
+
+          <p>
+            <label>
+              <input class="with-gap" name="type" type="radio" value="outcome" v-model="type">
+              <span>{{'Outcome'|localize}}</span>
+            </label>
+          </p>
+        </div>
+      </div>
+
       <div class="input-field">
           <select ref="waterIntake" v-model="waterIntake">
             <option v-for="wi of waterIntakes" :key="wi.id" :value="wi.id">{{wi.title}}</option>
@@ -43,19 +61,7 @@
           <label>{{'SelectWaterConsumer'|localize}}</label>
         </div>
 
-      <p>
-        <label>
-          <input class="with-gap" name="type" type="radio" value="income" v-model="type">
-          <span>{{'Income'|localize}}</span>
-        </label>
-      </p>
-
-      <p>
-        <label>
-          <input class="with-gap" name="type" type="radio" value="outcome" v-model="type">
-          <span>{{'Outcome'|localize}}</span>
-        </label>
-      </p>
+      
 
       <div class="input-field">
         <input id="amount" type="text" v-model.number="amount" 

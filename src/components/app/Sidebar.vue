@@ -25,7 +25,8 @@ export default {
       { title: localizeFilter('Menu_NewRecord'), url: '/record' },
       { title: localizeFilter('Menu_Categories'), url: '/categories' },
       { title: localizeFilter('Menu_WaterIntakes'), url: '/waterintakes' },
-      { title: localizeFilter('Menu_WaterConsumers'), url: '/waterconsumers' }
+      { title: localizeFilter('Menu_WaterConsumers'), url: '/waterconsumers' },
+      { title: localizeFilter('Menu_Wastewater_Receivers'), url: '/wastewaterreceivers' }
 
     ]
   })
