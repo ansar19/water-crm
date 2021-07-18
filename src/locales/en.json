@@ -145,5 +145,6 @@
   "Message_Wastewater_Receiver_Title": "Enter wastewater receiver name",
   "Wastewater_Receiver_Detail": "Wastewater Receiver Detail",
   "Wastewater_Receiver_HasBeenCreated": "Wastewater Receiver has been created",
-  "No_Wastewater_Receivers": "No Wastewater Receivers"
+  "No_Wastewater_Receivers": "No Wastewater Receivers",
+  "Wastewater_Receiver_HasBeenUpdated": "Wastewater Receiver Has Been Updated"
 }

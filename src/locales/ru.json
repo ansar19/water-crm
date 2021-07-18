@@ -141,11 +141,12 @@
   "Water_Removal_Delivery_Date": "Дата",
   "Wastewater_Receivers": "Приёмники сточных вод",
   "Select_Wastewater_Receiver": "Выберите приёмник сточных вод",
-  "Internal_Wastewater_Receiver": "Internal приёмник сточных вод",
-  "External_Wastewater_Receiver": "External приёмник сточных вод",
+  "Internal_Wastewater_Receiver": "Внутренний приёмник сточных вод",
+  "External_Wastewater_Receiver": "Внешний приёмник сточных вод",
   "Message_Wastewater_Receiver_Title": "Введите название приёмника сточных вод",
   "Wastewater_Receiver_Detail": "Детали приёмника сточных вод",
   "Wastewater_Receiver_HasBeenCreated": "Приёмник сточных вод создан",
-  "No_Wastewater_Receivers": "Приёмники сточных вод отсутствуют"
+  "No_Wastewater_Receivers": "Приёмники сточных вод отсутствуют",
+  "Wastewater_Receiver_HasBeenUpdated": "Приемник сточных вод обновлен"
 
 }
