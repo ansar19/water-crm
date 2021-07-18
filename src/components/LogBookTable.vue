@@ -23,10 +23,16 @@ import {
   VueGoodTable
 } from 'vue-good-table'
 
+import flatPickr from "flatpickr";
+
+import "flatpickr/dist/flatpickr.css";
+import "flatpickr/dist/themes/material_blue.css";
+
 export default {
   name: 'log-book-table',
   components: {
     VueGoodTable,
+    flatPickr
   },
   props: {
     records: {
@@ -51,6 +57,11 @@ export default {
           dateInputFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
           dateOutputFormat: 'dd-MM-yyyy',
           sortable: true,
+          filterOptions: {
+            enabled: true,
+            placeholder: "выберите даты",
+            filterFn: this.dateRangeFilter
+          }
           //   filterable: true,
           //   filterOptions: {
           //     enabled: true,
@@ -125,6 +136,26 @@ export default {
       },
     }
   },
+  mounted() {
+    // related to range select - flatpkr
+    let inputs = [
+      'input[placeholder="выберите даты"]',
+      'input[placeholder="Filter Start Date"]',
+      'input[placeholder="Filter Need By Date"]'
+    ];
+    inputs.forEach(function (input) {
+      flatPickr(input, {
+        mode: "range",
+        dateFormat: 'n/j/Y',
+        mode: "range",
+        showMonths: 2,
+        allowInput: true,
+        onOpen: function (selectedDates, dateStr, instance) {
+          instance.setDate(instance.input.value, false);
+        }
+      });
+    });
+  },
   methods: {
       translateType(value) {
         const map = {
@@ -133,6 +164,14 @@ export default {
             // amber: 'Янтарный',
         };
       return `${map[value]}`;
+    },
+    // related to range select - flatpkr
+    dateRangeFilter(data, filterString) {
+      let dateRange = filterString.split("to");
+      let startDate = Date.parse(dateRange[0]);
+      let endDate = Date.parse(dateRange[1]);
+      return (data =
+        Date.parse(data) >= startDate && Date.parse(data) <= endDate);
     },
   }
 }

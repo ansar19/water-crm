@@ -186,6 +186,9 @@ export default {
             type: this.type,
             date: new Date().toJSON(),
             recordDate: this.recordDate.toJSON(),
+            // new Date($scope.startDT).toLocaleString(),
+            // recordDate: new Date(this.recordDate).toLocaleString(),
+
           })
           const bill =
             this.type === 'income' ?
