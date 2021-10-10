@@ -1,13 +1,11 @@
 <template>
   <div class="meta-table">
-    <vue-good-table :columns="columns" :rows="records" :search-options="{ enabled: true, placeholder: 'Введите текст для поиска' }" :pagination-options="paginationOptions">
+    <vue-good-table :columns="columns" :rows="records"
+      :search-options="{ enabled: true, placeholder: 'Введите текст для поиска' }"
+      :pagination-options="paginationOptions">
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.field == 'action'">
-          <button
-            v-tooltip="'OpenRecord'"
-            class="btn-small btn"
-            @click="$router.push('/detail/' + props.row.id)"
-          >
+          <button v-tooltip="'OpenRecord'" class="btn-small btn" @click="$router.push('/detail/' + props.row.id)">
             <i class="material-icons">open_in_new</i>
           </button>
         </span>
@@ -23,10 +21,15 @@ import {
   VueGoodTable
 } from 'vue-good-table'
 
+import flatPickr from "flatpickr";
+import "flatpickr/dist/flatpickr.css";
+import "flatpickr/dist/themes/material_blue.css";
+
 export default {
   name: 'log-book-table',
   components: {
     VueGoodTable,
+    flatPickr
   },
   props: {
     records: {
@@ -36,8 +39,7 @@ export default {
   },
   data() {
     return {
-      columns: [
-        {
+      columns: [{
           label: 'Объем, м3',
           field: 'amount',
           type: 'number',
@@ -51,6 +53,11 @@ export default {
           dateInputFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
           dateOutputFormat: 'dd-MM-yyyy',
           sortable: true,
+          filterOptions: {
+            enabled: true,
+            placeholder: "выберите даты",
+            filterFn: this.dateRangeFilter
+          }
           //   filterable: true,
           //   filterOptions: {
           //     enabled: true,
@@ -125,14 +132,42 @@ export default {
       },
     }
   },
+  mounted() {
+    // related to range select - flatpkr
+    let inputs = [
+      'input[placeholder="выберите даты"]',
+      'input[placeholder="Filter Start Date"]',
+      'input[placeholder="Filter Need By Date"]'
+    ];
+    inputs.forEach(function (input) {
+      flatPickr(input, {
+        mode: "range",
+        dateFormat: 'n/j/Y',
+        mode: "range",
+        showMonths: 2,
+        allowInput: true,
+        onOpen: function (selectedDates, dateStr, instance) {
+          instance.setDate(instance.input.value, false);
+        }
+      });
+    });
+  },
   methods: {
-      translateType(value) {
-        const map = {
-            internalWaterUser: 'Внутреннее водопотребление', // to-do add rest of the waterUsers
-            secondaryWaterUser: 'Вторичный водопотребитель'
-            // amber: 'Янтарный',
-        };
+    translateType(value) {
+      const map = {
+        internalWaterUser: 'Внутреннее водопотребление', // to-do add rest of the waterUsers
+        secondaryWaterUser: 'Вторичный водопотребитель'
+        // amber: 'Янтарный',
+      };
       return `${map[value]}`;
+    },
+    // related to range select - flatpkr
+    dateRangeFilter(data, filterString) {
+      let dateRange = filterString.split("to");
+      let startDate = Date.parse(dateRange[0]);
+      let endDate = Date.parse(dateRange[1]);
+      return (data =
+        Date.parse(data) >= startDate && Date.parse(data) <= endDate);
     },
   }
 }
