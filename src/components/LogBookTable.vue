@@ -22,6 +22,10 @@ import {
 } from 'vue-good-table'
 
 import flatPickr from "flatpickr";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 52dc0e9f0ac9b202fb60d7edf5dad9743efa933e
 import "flatpickr/dist/flatpickr.css";
 import "flatpickr/dist/themes/material_blue.css";
 

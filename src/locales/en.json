@@ -40,6 +40,7 @@
   "Menu_WaterIntakes": "Water Intakes",
   "Menu_WaterConsumers": "Water Consumers",
   "WaterConsumer_Detail": "Water Consumer Detail",
+  "Menu_Wastewater_Receivers": "Wastewater Receivers",
   "Title": "Title",
   "Limit": "Limit",
   "Water_Body_Code_And_Type": "Water Body Code And Type",
@@ -136,7 +137,14 @@
   "Limit_Year": "Limit Year",
   "Yearly_Water_Limit_Volume": "Annual limit thous. m3",
   "Attach_Documents": "Загрузите документы",
-  "Water_Removal_Delivery_Date": "Water Removal or Delivery Date"
-
-
+  "Water_Removal_Delivery_Date": "Water Removal or Delivery Date",
+  "Wastewater_Receivers": "Wastewater Receivers",
+  "Select_Wastewater_Receiver": "Select Wastewater Receiver",
+  "Internal_Wastewater_Receiver": "Internal Wastewater Receiver",
+  "External_Wastewater_Receiver": "External Wastewater Receiver",
+  "Message_Wastewater_Receiver_Title": "Enter wastewater receiver name",
+  "Wastewater_Receiver_Detail": "Wastewater Receiver Detail",
+  "Wastewater_Receiver_HasBeenCreated": "Wastewater Receiver has been created",
+  "No_Wastewater_Receivers": "No Wastewater Receivers",
+  "Wastewater_Receiver_HasBeenUpdated": "Wastewater Receiver Has Been Updated"
 }
