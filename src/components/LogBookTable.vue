@@ -9,9 +9,9 @@
       :pagination-options="paginationOptions">
       <div slot="table-actions">
         <!-- download excel -->
-        <download-excel :data="records" :fields="json_fields" class="btn-small"
-          worksheet="waster" name="water.xls" v-tooltip="'Download_Data_XLSX'">
-          <span class="material-icons">cloud_download</span>
+        <download-excel :data="records" :fields="json_fields" class="btn-small btn" worksheet="waster" name="water.xls"
+          v-tooltip="'Download_Data_XLSX'">
+          <i class="material-icons">cloud_download</i>
         </download-excel>
       </div>
       <template slot="table-row" slot-scope="props">
@@ -33,7 +33,6 @@ import {
 } from 'vue-good-table'
 
 import flatPickr from "flatpickr";
-
 import "flatpickr/dist/flatpickr.css";
 import "flatpickr/dist/themes/material_blue.css";
 

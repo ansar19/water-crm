@@ -1,30 +1,46 @@
 <template>
   <div>
-    <Loader v-if="loading"/>
+    <Loader v-if="loading" />
     <div v-else-if="record">
       <div class="breadcrumb-wrap">
         <router-link to="/history" class="breadcrumb">{{'Menu_History'|localize}}</router-link>
-        <a
-          @click.prevent
-          class="breadcrumb"
-        >{{ record.type === 'income' ? 'Income' : 'Outcome' | localize }}</a>
+        <a @click.prevent class="breadcrumb">{{ record.type === 'income' ? 'Income' : 'Outcome' | localize }}</a>
       </div>
       <div class="row">
         <div class="col s12 m6">
-          <div
-            class="card"
-            :class="{
+          <div class="card" :class="{
             'red': record.type === 'outcome',
             'green': record.type === 'income'
-          }"
-          >
+          }">
             <div class="card-content white-text">
-              <p>{{'Description'|localize}}: {{record.description}}</p>
-              <p>{{'Amount'|localize}}: {{record.amount }} м3</p>
-              <p>{{'Category'|localize}}: {{record.categoryName}}</p>
-              <p>{{'WaterIntake'|localize}}: {{record.waterIntakeName}}</p>
-              <p>{{'WaterConsumer'|localize}}: {{record.waterConsumerName}}</p>
-              <small>{{record.date | date('datetime')}}</small>
+              <div class="vertical-table">
+                <table>
+                  <tr>
+                    <th>{{'Date'|localize}}:</th>
+                    <td>{{record.date | date('datetime')}}</td>
+                  </tr>
+                  <tr>
+                    <th>{{'Description'|localize}}:</th>
+                    <td>{{record.description}}</td>
+                  </tr>
+                  <tr>
+                    <th> {{'Amount'|localize}}:</th>
+                    <td>{{record.amount }} м3</td>
+                  </tr>
+                  <tr>
+                    <th>{{'Category'|localize}}:</th>
+                    <td>{{record.categoryName}}</td>
+                  </tr>
+                  <tr>
+                    <th>{{'WaterIntake'|localize}}:</th>
+                    <td>{{record.waterIntakeName}}</td>
+                  </tr>
+                  <tr>
+                    <th>{{'WaterConsumer'|localize}}:</th>
+                    <td>{{record.waterConsumerName}}</td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>
