@@ -21,6 +21,9 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
 
+import JsonExcel from 'vue-json-excel'
+Vue.component('downloadExcel', JsonExcel)
+
 Vue.config.productionTip = false
 
 Vue.use(messagePlugin)

@@ -1,8 +1,19 @@
 <template>
   <div class="meta-table">
+    <div class="page-title">
+      <h5>{{'History_Title'|localize}}</h5>
+      <p class="subcomponent-title">{{companyType.nameRu}} {{ companyName }}</p>
+    </div>
     <vue-good-table :columns="columns" :rows="records"
       :search-options="{ enabled: true, placeholder: 'Введите текст для поиска' }"
       :pagination-options="paginationOptions">
+      <div slot="table-actions">
+        <!-- download excel -->
+        <download-excel :data="records" :fields="json_fields" class="btn-small"
+          worksheet="waster" name="water.xls" v-tooltip="'Download_Data_XLSX'">
+          <span class="material-icons">cloud_download</span>
+        </download-excel>
+      </div>
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.field == 'action'">
           <button v-tooltip="'OpenRecord'" class="btn-small btn" @click="$router.push('/detail/' + props.row.id)">
@@ -102,7 +113,7 @@ export default {
           formatFn: this.translateType
         },
         {
-          label: 'Тип водопотребителя',
+          label: 'Тип водопотребления',
           field: 'typeText',
           filterOptions: {
             enabled: true,
@@ -131,6 +142,40 @@ export default {
         pageLabel: 'стр.', // for 'pages' mode
         allLabel: 'Все',
       },
+      // related to excel export
+      json_fields: {
+        Объем: 'amount',
+        'Дата вывоза': {
+          field: 'recordDate',
+          callback: value => {
+            return value.substring(0, 10)
+          }
+        },
+        'Код Категории': 'categoryCode',
+        'Код водного объекта': 'waterBody.waterBodyCodeAndType.waterBodyCode',
+        'Тип водного объекта': 'waterBody.waterBodyCodeAndType.waterBodyName',
+        'Название категории': 'categoryName',
+        'Водный объект': 'waterBody.title',
+        'Водопотребитель': 'waterConsumer.waterConsumerName',
+
+        'Тип водопотребителя': {
+          field: 'waterConsumer.waterConsumerType',
+          callback: value => {
+            const map = {
+              secondaryWaterUser: 'Вторичный водопотребитель',
+              internalWaterUser: 'Внутреннее водопотребление',
+            };
+            return `${map[value]}`;
+          }
+        },
+        'Тип водопотребления': 'typeText',
+      },
+      json_meta: [
+        [{
+          key: 'charset',
+          value: 'utf-8'
+        }]
+      ]
     }
   },
   mounted() {
@@ -152,6 +197,19 @@ export default {
         }
       });
     });
+  },
+  computed: {
+    companyName() {
+      return this.$store.getters.info.companyName
+    },
+    companyType() {
+      return this.$store.getters.info.companyType
+    },
+    // IE 11 or later
+    format(date) {
+      var month = date.toLocaleString('en-US', { month: 'short' })
+      return date.getDate() + ' ' + month + ' ' + date.getFullYear()
+    }
   },
   methods: {
     translateType(value) {

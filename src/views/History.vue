@@ -1,8 +1,5 @@
 <template>
-  <div >
-    <div class="page-title">
-      <h3>{{'History_Title'|localize}}</h3>
-    </div>
+  <div>
 
     <Loader v-if="loading"/>
 

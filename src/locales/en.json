@@ -15,6 +15,8 @@
   "Copy": "Copy",
   "Delete": "Delete",
   "Cancel": "Cancel",
+  "Download_Data_XLSX": "Upload data XLSX",
+  "Download_Data_DOCX": "Upload data DOCX",
   "Bill": "Bill",
   "General_Info": "General_Info",
   "Name": "Name",

@@ -15,6 +15,8 @@
   "Create": "Создать",
   "Delete": "Удалить",
   "Cancel": "Отменить",
+  "Download_Data_XLSX": "Выгрузить данные XLSX",
+  "Download_Data_DOCX": "Выгрузить данные DOCX",
   "Bill": "Счет",
   "General_Info": "Общая информация",
   "Name": "Имя",
